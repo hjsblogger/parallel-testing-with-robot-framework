@@ -1,0 +1,16 @@
+==============================================================================
+Tests                                                                         
+==============================================================================
+Tests.Test Todo App                                                           
+==============================================================================
+Example 1: [ToDo] Parallel Testing with Robot framework               | PASS |
+------------------------------------------------------------------------------
+Example 2: [ToDo] Parallel Testing with Robot framework               | PASS |
+------------------------------------------------------------------------------
+Tests.Test Todo App                                                   | PASS |
+2 tests, 2 passed, 0 failed
+==============================================================================
+Tests                                                                 | PASS |
+2 tests, 2 passed, 0 failed
+==============================================================================
+Output:  /Users/applemacbook_pro/Projects/Blogging/PushChanges/parallel-testing-with-robot-framework/pabot_results/1/output.xml

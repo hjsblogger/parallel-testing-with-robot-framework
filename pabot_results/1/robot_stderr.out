@@ -1,0 +1,11 @@
+[ ERROR ] Taking listener 'RobotStackTracer' into use failed: Importing listener 'RobotStackTracer' failed: ModuleNotFoundError: No module named 'RobotStackTracer'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/applemacbook_pro/opt/anaconda3/bin
+  /Users/applemacbook_pro/opt/anaconda3/lib/python39.zip
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/lib-dynload
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages/aeosa
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages/locket-0.2.1-py3.9.egg

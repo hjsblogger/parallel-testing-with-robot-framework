@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.7 on darwin)" generated="20220824 16:42:40.764" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="/Users/applemacbook_pro/Projects/Blogging/PushChanges/parallel-testing-with-robot-framework/Tests">
+<suite id="s1-s1" name="Test Todo App" source="/Users/applemacbook_pro/Projects/Blogging/PushChanges/parallel-testing-with-robot-framework/Tests/test_todo_app.robot">
+<test id="s1-s1-t1" name="Example 1: [ToDo] Parallel Testing with Robot framework" line="42">
+<kw name="Open test browser" library="Common">
+<arg>${site_url}</arg>
+<arg>${BROWSER_1}</arg>
+<arg>${CAPABILITIES_1}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${TEST_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<arg>desired_capabilities=${CAPABILITIES}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220824 16:42:41.203" level="INFO">Opening browser 'Chrome' to base url 'https://lambdatest.github.io/sample-todo-app/' through remote server at 'http://himanshujlambdatest:7A6pDWfFCavmJajP7466YAnCaH5pndMtfG0TnsSbfaPzUeJmu3@hub.lambdatest.com/wd/hub'.</msg>
+<status status="PASS" starttime="20220824 16:42:41.202" endtime="20220824 16:42:51.924"/>
+</kw>
+<timeout value="50 minutes"/>
+<status status="PASS" starttime="20220824 16:42:41.201" endtime="20220824 16:42:51.925"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${FirstItem}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220824 16:42:52.487" level="INFO">Current page contains element 'name:li1'.</msg>
+<status status="PASS" starttime="20220824 16:42:51.925" endtime="20220824 16:42:52.487"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${SecondItem}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220824 16:42:53.053" level="INFO">Current page contains element 'name:li2'.</msg>
+<status status="PASS" starttime="20220824 16:42:52.487" endtime="20220824 16:42:53.053"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${FirstItem}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:42:53.053" level="INFO">Clicking button 'name:li1'.</msg>
+<status status="PASS" starttime="20220824 16:42:53.053" endtime="20220824 16:42:55.425"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${SecondItem}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:42:55.426" level="INFO">Clicking button 'name:li2'.</msg>
+<status status="PASS" starttime="20220824 16:42:55.425" endtime="20220824 16:42:57.643"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ToDoText}</arg>
+<arg>${NewItemText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220824 16:42:57.643" level="INFO">Typing text 'Yey Let's add it to list' into text field 'id:sampletodotext'.</msg>
+<status status="PASS" starttime="20220824 16:42:57.643" endtime="20220824 16:42:59.187"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AddButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:42:59.187" level="INFO">Clicking button 'id:addbutton'.</msg>
+<status status="PASS" starttime="20220824 16:42:59.187" endtime="20220824 16:43:00.723"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${NewAdditionText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:01.720" level="INFO">${response} = Yey Let's add it to list</msg>
+<status status="PASS" starttime="20220824 16:43:00.724" endtime="20220824 16:43:01.721"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${NewItemText}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220824 16:43:01.721" endtime="20220824 16:43:01.721"/>
+</kw>
+<kw name="Close test browser" library="Common" type="TEARDOWN">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${REMOTE_URL}' != ''</arg>
+<arg>report lambdatest status</arg>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Report Lambdatest Status" library="LambdaTestStatus">
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<msg timestamp="20220824 16:43:01.723" level="INFO">Executing JavaScript:
+lambda-status=passed
+Without any arguments.</msg>
+<msg timestamp="20220824 16:43:03.337" level="INFO">Executing JavaScript:
+lambda-name=Example 1: [ToDo] Parallel Testing with Robot framework
+Without any arguments.</msg>
+<status status="PASS" starttime="20220824 16:43:01.722" endtime="20220824 16:43:04.982"/>
+</kw>
+<status status="PASS" starttime="20220824 16:43:01.722" endtime="20220824 16:43:04.982"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220824 16:43:04.982" endtime="20220824 16:43:05.915"/>
+</kw>
+<status status="PASS" starttime="20220824 16:43:01.721" endtime="20220824 16:43:05.915"/>
+</kw>
+<tag>ToDo App Automation - 1</tag>
+<timeout value="50 minutes"/>
+<status status="PASS" starttime="20220824 16:42:41.200" endtime="20220824 16:43:05.915"/>
+</test>
+<test id="s1-s1-t2" name="Example 2: [ToDo] Parallel Testing with Robot framework" line="57">
+<kw name="Open test browser" library="Common">
+<arg>${site_url}</arg>
+<arg>${BROWSER_2}</arg>
+<arg>${CAPABILITIES_2}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${TEST_URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<arg>desired_capabilities=${CAPABILITIES}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220824 16:43:05.918" level="INFO">Opening browser 'Opera' to base url 'https://lambdatest.github.io/sample-todo-app/' through remote server at 'http://himanshujlambdatest:7A6pDWfFCavmJajP7466YAnCaH5pndMtfG0TnsSbfaPzUeJmu3@hub.lambdatest.com/wd/hub'.</msg>
+<status status="PASS" starttime="20220824 16:43:05.917" endtime="20220824 16:43:22.687"/>
+</kw>
+<timeout value="50 minutes"/>
+<status status="PASS" starttime="20220824 16:43:05.917" endtime="20220824 16:43:22.687"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${FirstItem}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220824 16:43:23.301" level="INFO">Current page contains element 'name:li1'.</msg>
+<status status="PASS" starttime="20220824 16:43:22.687" endtime="20220824 16:43:23.301"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${SecondItem}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220824 16:43:23.882" level="INFO">Current page contains element 'name:li2'.</msg>
+<status status="PASS" starttime="20220824 16:43:23.301" endtime="20220824 16:43:23.882"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${FifthItem}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220824 16:43:24.478" level="INFO">Current page contains element 'name:li5'.</msg>
+<status status="PASS" starttime="20220824 16:43:23.883" endtime="20220824 16:43:24.478"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${FirstItem}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:24.479" level="INFO">Clicking button 'name:li1'.</msg>
+<status status="PASS" starttime="20220824 16:43:24.479" endtime="20220824 16:43:25.903"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${SecondItem}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:25.903" level="INFO">Clicking button 'name:li2'.</msg>
+<status status="PASS" starttime="20220824 16:43:25.903" endtime="20220824 16:43:27.276"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${FifthItem}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:27.277" level="INFO">Clicking button 'name:li5'.</msg>
+<status status="PASS" starttime="20220824 16:43:27.276" endtime="20220824 16:43:28.532"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ToDoText}</arg>
+<arg>${NewItemText}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:28.533" level="INFO">Typing text 'Yey Let's add it to list' into text field 'id:sampletodotext'.</msg>
+<status status="PASS" starttime="20220824 16:43:28.532" endtime="20220824 16:43:30.282"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AddButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:30.282" level="INFO">Clicking button 'id:addbutton'.</msg>
+<status status="PASS" starttime="20220824 16:43:30.282" endtime="20220824 16:43:31.735"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${response}</var>
+<arg>${NewAdditionText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220824 16:43:32.783" level="INFO">${response} = Yey Let's add it to list</msg>
+<status status="PASS" starttime="20220824 16:43:31.735" endtime="20220824 16:43:32.783"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response}</arg>
+<arg>${NewItemText}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220824 16:43:32.784" endtime="20220824 16:43:32.784"/>
+</kw>
+<kw name="Close test browser" library="Common" type="TEARDOWN">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${REMOTE_URL}' != ''</arg>
+<arg>report lambdatest status</arg>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Report Lambdatest Status" library="LambdaTestStatus">
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<msg timestamp="20220824 16:43:32.785" level="INFO">Executing JavaScript:
+lambda-status=passed
+Without any arguments.</msg>
+<msg timestamp="20220824 16:43:34.379" level="INFO">Executing JavaScript:
+lambda-name=Example 2: [ToDo] Parallel Testing with Robot framework
+Without any arguments.</msg>
+<status status="PASS" starttime="20220824 16:43:32.785" endtime="20220824 16:43:35.993"/>
+</kw>
+<status status="PASS" starttime="20220824 16:43:32.784" endtime="20220824 16:43:35.993"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220824 16:43:35.993" endtime="20220824 16:43:36.562"/>
+</kw>
+<status status="PASS" starttime="20220824 16:43:32.784" endtime="20220824 16:43:36.562"/>
+</kw>
+<tag>ToDo App Automation - 2</tag>
+<timeout value="50 minutes"/>
+<status status="PASS" starttime="20220824 16:43:05.916" endtime="20220824 16:43:36.562"/>
+</test>
+<status status="PASS" starttime="20220824 16:42:40.807" endtime="20220824 16:43:36.563"/>
+</suite>
+<status status="PASS" starttime="20220824 16:42:40.773" endtime="20220824 16:43:36.564"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">ToDo App Automation - 1</stat>
+<stat pass="1" fail="0" skip="0">ToDo App Automation - 2</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Test Todo App">Tests.Test Todo App</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220824 16:42:40.770" level="ERROR">Taking listener 'RobotStackTracer' into use failed: Importing listener 'RobotStackTracer' failed: ModuleNotFoundError: No module named 'RobotStackTracer'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/applemacbook_pro/opt/anaconda3/bin
+  /Users/applemacbook_pro/opt/anaconda3/lib/python39.zip
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/lib-dynload
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages/aeosa
+  /Users/applemacbook_pro/opt/anaconda3/lib/python3.9/site-packages/locket-0.2.1-py3.9.egg</msg>
+</errors>
+</robot>
