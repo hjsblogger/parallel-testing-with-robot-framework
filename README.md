@@ -8,5 +8,10 @@ Install the Python packages by running the *poerty install* command on the termi
 poetry install
 ```
 
+It installs the libraries that are required for testing. Shown below is the execution snapshot:
 
-
+<img width="1080" alt="Screenshot 2022-09-16 at 2 10 49 PM" src="https://user-images.githubusercontent.com/1688653/190631097-1c3d83dc-a59a-4c5c-9078-698350aad35b.png">
+<img width="822" alt="Screenshot 2022-09-16 at 2 12 17 PM" src="https://user-images.githubusercontent.com/1688653/190631088-2a01af38-3b1a-43a6-95bc-07847a839c8c.png">
+<img width="823" alt="Screenshot 2022-09-16 at 2 12 04 PM" src="https://user-images.githubusercontent.com/1688653/190631089-bf274eed-1703-46a5-8f69-0f890a396612.png">
+<img width="819" alt="Screenshot 2022-09-16 at 2 12 29 PM" src="https://user-images.githubusercontent.com/1688653/190631083-b8b1f5c6-393d-4330-96bd-33fedc8ff023.png">
+<img width="806" alt="Screenshot 2022-09-16 at 2 12 46 PM" src="https://user-images.githubusercontent.com/1688653/190631076-23bcc619-3f72-487d-8a0a-7d5f36e539be.png">
