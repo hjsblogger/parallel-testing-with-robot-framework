@@ -12,7 +12,7 @@ poetry install
 
 It installs the libraries that are required for testing. Shown below is the execution snapshot:
 
-<img width="1080" alt="Screenshot 2022-09-16 at 2 10 49 PM" src="https://user-images.githubusercontent.com/1688653/190631097-1c3d83dc-a59a-4c5c-9078-698350aad35b.png">
+<img width="1080" alt="Screenshot 2022-09-16 at 2 10 49 PM" src="https://user-images.githubusercontent.com/1688653/196665109-f5a39ba0-2442-4e4b-8ff2-5f6b6d7f83dd.png">
 <img width="822" alt="Screenshot 2022-09-16 at 2 12 17 PM" src="https://user-images.githubusercontent.com/1688653/190631088-2a01af38-3b1a-43a6-95bc-07847a839c8c.png">
 <img width="823" alt="Screenshot 2022-09-16 at 2 12 04 PM" src="https://user-images.githubusercontent.com/1688653/190631089-bf274eed-1703-46a5-8f69-0f890a396612.png">
 <img width="819" alt="Screenshot 2022-09-16 at 2 12 29 PM" src="https://user-images.githubusercontent.com/1688653/190631083-b8b1f5c6-393d-4330-96bd-33fedc8ff023.png">
@@ -43,5 +43,11 @@ set LT_USERNAME=LT_USERNAME
 set LT_ACCESS_KEY=LT_ACCESS_KEY
 ```
 
-## Configure Environment Variables
+## Splitting test execution at the suite level
+
+Run the following command on the terminal to run split test execution at 
+
+## Splitting test execution on the test level
+
+
 
