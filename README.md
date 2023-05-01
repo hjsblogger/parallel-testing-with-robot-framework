@@ -84,3 +84,10 @@ As seen on the [LambdaTest Automation Dashboard](https://automation.lambdatest.c
 Here is the successful execution status as seen in the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build)
 
 <img width="1428" alt="Robot_Test_Level_Execution_Completion" src="https://user-images.githubusercontent.com/1688653/235419907-e09fee67-8325-4c0f-afb1-298f00aea7c1.png">
+
+## Need Assistance?
+Feel free to fork the repo and contribute to make it better! Email to [himanshu[dot]sheth[at]gmail[dot]com](mailto:himanshu.sheth@gmail.com) for any queries or ping me on the following social media sites:
+
+<b>Twitter</b>: [@hjsblogger](https://www.twitter.com/hjsblogger)
+<br/>
+<b>LinkedIn</b>: [@hjsblogger](https://linkedin.com/in/hjsblogger)
