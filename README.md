@@ -1,10 +1,10 @@
-Perform the following steps for running the Robot tests in paralle on the Selenium Grid:
+Perform the following steps for running the Robot tests in parallel on the Selenium Grid:
 
 ## Installation of Python packages
 
-1. Packages that need to be installed are present in *pyproject.toml* Execution is performed on the LambdaTest Selenium Grid. We are using Selenium 3.141.0 for the execution.  
+1. Packages that need to be installed are present in *pyproject.toml* Execution is performed on the LambdaTest Selenium Grid. We are using Selenium 4.9.0 for the execution.  
 
-Install the Python packages by running the *poerty install* command on the terminal
+Install the Python packages by running the *poetry install* command on the terminal
 
 ```bash
 poetry install
@@ -45,9 +45,34 @@ set LT_ACCESS_KEY=LT_ACCESS_KEY
 
 ## Splitting test execution at the suite level
 
-Run the following command on the terminal to run split test execution at 
+As stated in the [official documentation of Robot framework](https://docs.robotframework.org/docs/parallel#usage), Pabot splits execution on suite level (by default). That means that each process will run a single suite. Test Cases from the suite will be executed sequentially.
+
+Run the following command ```pabot --verbose --processes 4 Tests/``` on the terminal to run tests in parallel at the suite-level. This command will run the tests in the respective .robot files in parallel, whereas individual tests in each robot file will run in a sequential manner.
+
+Shown below is the terminal screenshot of successful execution:
+
+<img width="1428" alt="Robot_Suite_Level_Execution_Terminal" src="https://user-images.githubusercontent.com/1688653/235423782-d2eb29d2-2ae2-4228-8b9b-395411e41fc7.png">
+
+As seen on the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build), three tests - 2 from *Tests/test_todo_app.robot* and 1 from *Tests/test_sel_playground.robot* are run in parallel
+
+<img width="1428" alt="Robot_Suite_Level_Execution_Progress" src="https://user-images.githubusercontent.com/1688653/235423049-4263ffcb-786c-4cd2-8ccc-22266cf3e6da.png">
+
+Here is the successful execution status as seen in the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build)
+
+<img width="1440" alt="Robot_Suite_Level_Execution_Completion" src="https://user-images.githubusercontent.com/1688653/235423018-23cc7ce1-649c-4f55-9d77-84c0b45ccfb4.png">
 
 ## Splitting test execution on the test level
 
+Run the following command ```pabot --verbose --processes 4 --testlevelsplit Tests/``` on the terminal to run tests in parallel at the test-level. This command will run the tests in the respective .robot files in parallel.
 
+Shown below is the terminal screenshot of successful execution:
 
+<img width="1411" alt="Robot_Test_Level_Execution" src="https://user-images.githubusercontent.com/1688653/235419139-7e2a661a-83f0-4f3c-89e6-a85d4a21a28e.png">
+
+As seen on the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build), three tests - 2 from *Tests/test_todo_app.robot* and 1 from *Tests/test_sel_playground.robot* are run in parallel
+
+<img width="1428" alt="Robot_Test_Level_Execution_Progress" src="https://user-images.githubusercontent.com/1688653/235419768-7d79ed7b-c0c6-46d8-979e-2f3a88c33580.png">
+
+Here is the successful execution status as seen in the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build)
+
+<img width="1428" alt="Robot_Test_Level_Execution_Completion" src="https://user-images.githubusercontent.com/1688653/235419907-e09fee67-8325-4c0f-afb1-298f00aea7c1.png">
