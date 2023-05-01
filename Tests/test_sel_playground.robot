@@ -8,19 +8,24 @@ Test Teardown  Common.Close test browser
 *** Variables ***
 
 ${site_url}  		https://www.lambdatest.com/selenium-playground/
-@{_tmp}
-    ...  browserName: Firefox,
-    ...  platform: MacOS Monterey,
-    ...  version: latest-4,
-    ...  visual: true,
-    ...  network: true,
-    ...  console: true,
-    ...  name: [Playground - 1] Parallel Testing with Robot framework,
-	...  build: [Demo - 2] Parallel Testing with Robot framework,
-    ...  project: [Demo - 2] Robot Testing
 
-${BROWSER}          Firefox
-${CAPABILITIES}     ${EMPTY.join(${_tmp})}
+*** Comments ***
+# Configuration for first test scenario
+
+*** Variables ***
+
+&{lt_options}
+    ...  browserName=Firefox
+    ...  platformName=MacOS Monterey
+    ...  browserVersion=latest-4
+    ...  visual=true
+	...	 w3c=true
+    ...  name=[Playground - 1] Parallel Testing with Robot framework
+	...  build=[Playground Demo - 1] Parallel Testing with Robot framework
+    ...  project=[Playground Project - 1] Parallel Testing with Robot framework
+
+${BROWSER}	  	  	${lt_options['browserName']}
+&{CAPABILITIES}     LT:Options=&{lt_options}
 
 *** Test Cases ***
 

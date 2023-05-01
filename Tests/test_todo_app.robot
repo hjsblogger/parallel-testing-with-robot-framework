@@ -9,33 +9,41 @@ Test Teardown  Common.Close test browser
 
 ${site_url}  		https://lambdatest.github.io/sample-todo-app/
 
-@{_tmp_1}
-    ...  browserName: Chrome,
-    ...  platform: Windows 11,
-    ...  version: latest,
-    ...  visual: true,
-    ...  network: true,
-    ...  console: true,
-    ...  name: [ToDo - 1] Parallel Testing with Robot framework,
-	...  build: [Demo - 1] Parallel Testing with Robot framework,
-    ...  project: [Demo -1] Robot Testing
+*** Comments ***
+# Configuration for first test scenario
 
-${CAPABILITIES_1}     ${EMPTY.join(${_tmp_1})}
-${BROWSER_1}          Chrome
+*** Variables ***
 
-@{_tmp_2}
-    ...  browserName: Opera,
-    ...  platform: macOS High Sierra,
-    ...  version: latest-2,
-    ...  visual: true,
-    ...  network: true,
-    ...  console: true,
-    ...  name: [ToDo - 2] Parallel Testing with Robot framework,
-	...  build: [Demo - 2] Parallel Testing with Robot framework,
-    ...  project: [Demo - 1] Robot Testing
+&{lt_options_1}
+    ...  browserName=Chrome
+    ...  platformName=Windows 11
+    ...  browserVersion=latest
+    ...  visual=true
+	...	 w3c=true
+    ...  name=[ToDoApp - 1] Parallel Testing with Robot framework
+	...  build=[ToDoApp Demo - 1] Parallel Testing with Robot framework
+    ...  project=[ToDoApp Project - 1] Parallel Testing with Robot framework
 
-${CAPABILITIES_2}     ${EMPTY.join(${_tmp_2})}
-${BROWSER_2}          Opera
+${BROWSER_1}	  	  ${lt_options_1['browserName']}
+&{CAPABILITIES_1}     LT:Options=&{lt_options_1}
+
+*** Comments ***
+# Configuration for second test scenario
+
+*** Variables ***
+
+&{lt_options_2}
+    ...  browserName=Safari
+    ...  platformName=MacOS Ventura
+    ...  browserVersion=16.0
+    ...  visual=true
+	...	 w3c=true
+    ...  name=[ToDoApp - 2] Parallel Testing with Robot framework
+	...  build=[ToDoApp Demo - 2] Parallel Testing with Robot framework
+    ...  project=[ToDoApp Project - 2] Parallel Testing with Robot framework
+
+${BROWSER_2}	  	  ${lt_options_2['browserName']}
+&{CAPABILITIES_2}     LT:Options=&{lt_options_2}
 
 *** Test Cases ***
 
