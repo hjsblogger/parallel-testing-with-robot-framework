@@ -1,7 +1,7 @@
 *** Settings ***
 
-Resource  	../Resources/PageObject/KeyDefs/Common.robot
-Variables 	../Resources/PageObject/Locators/Locators.py
+Resource  	../../Resources/PageObject/KeyDefs/Common.robot
+Variables 	../../Resources/PageObject/Locators/Locators.py
 
 Test Teardown  Common.Close test browser
 
@@ -51,6 +51,8 @@ Example 1: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 1
 	[Timeout]   ${TIMEOUT}
 	Open test browser	${site_url}		${BROWSER_1}		${CAPABILITIES_1}
+	Maximize Browser Window
+	Sleep  3s
 	Page should contain element  ${FirstItem}
 	Page should contain element  ${SecondItem}
 
@@ -66,6 +68,8 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 2
 	[Timeout]   ${TIMEOUT}
 	Open test browser	${site_url}		${BROWSER_2}		${CAPABILITIES_2}
+	Maximize Browser Window
+	Sleep  3s
 	Page should contain element  ${FirstItem}
 	Page should contain element  ${SecondItem}
 	Page should contain element  ${FifthItem}

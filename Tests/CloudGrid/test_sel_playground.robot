@@ -1,7 +1,7 @@
 *** Settings ***
 
-Resource  	../Resources/PageObject/KeyDefs/Common.robot
-Variables 	../Resources/PageObject/Locators/Locators.py
+Resource  	../../Resources/PageObject/KeyDefs/Common.robot
+Variables 	../../Resources/PageObject/Locators/Locators.py
 
 Test Teardown  Common.Close test browser
 
@@ -33,6 +33,8 @@ Example 2: [Playground] Parallel Testing with Robot framework
 	[tags]  Selenium Playground Automation
 	[Timeout]   ${TIMEOUT}
 	Open test browser	${site_url}		${BROWSER}		${CAPABILITIES}
+	Maximize Browser Window
+	Sleep  3s
 	Page should contain element  xpath://a[.='Input Form Submit']
 
 	Click link  ${SubmitButton}

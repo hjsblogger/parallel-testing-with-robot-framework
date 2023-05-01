@@ -20,3 +20,11 @@ Close test browser
     ...  ${TEST_NAME}
     ...  ${TEST_STATUS}
     Close Browser
+
+Open local test browser
+    [Arguments]     ${TEST_URL}     ${BROWSER}
+    [Timeout]       ${TIMEOUT}
+    Open browser    ${TEST_URL}     ${BROWSER}
+
+Close local test browser
+    Close Browser
