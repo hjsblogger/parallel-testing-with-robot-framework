@@ -55,7 +55,7 @@ set LT_ACCESS_KEY=LT_ACCESS_KEY
 
 As stated in the [official documentation of Robot framework](https://docs.robotframework.org/docs/parallel#usage), Pabot splits execution on suite level (by default). That means that each process will run a single suite. Test Cases from the suite will be executed sequentially.
 
-Run the following command ```pabot --verbose --processes 4 Tests/``` on the terminal to run tests in parallel at the suite-level. This command will run the tests in the respective .robot files in parallel, whereas individual tests in each robot file will run in a sequential manner.
+Run the following command ```pabot --verbose --processes 4 Tests/CloudGrid/``` on the terminal to run tests in parallel at the suite-level. This command will run the tests in the respective .robot files in parallel, whereas individual tests in each robot file will run in a sequential manner.
 
 Shown below is the terminal screenshot of successful execution:
 
@@ -71,7 +71,7 @@ Here is the successful execution status as seen in the [LambdaTest Automation Da
 
 ## Splitting test execution on the test level
 
-Run the following command ```pabot --verbose --processes 4 --testlevelsplit Tests/``` on the terminal to run tests in parallel at the test-level. This command will run the tests in the respective .robot files in parallel.
+Run the following command ```pabot --verbose --processes 4 --testlevelsplit Tests/CloudGrid/``` on the terminal to run tests in parallel at the test-level. This command will run the tests in the respective .robot files in parallel.
 
 Shown below is the terminal screenshot of successful execution:
 
