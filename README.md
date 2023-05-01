@@ -2,7 +2,7 @@ Perform the following steps for running the Robot tests in parallel on the Selen
 
 ## Installation of Python packages
 
-1. Packages that need to be installed are present in *pyproject.toml* Execution is performed on the LambdaTest Selenium Grid. We are using Selenium 4.9.0 for the execution.  
+Packages that need to be installed are present in *pyproject.toml* Execution is performed on the LambdaTest Selenium Grid. We are using Selenium 4.9.0 for the execution.  
 
 Install the Python packages by running the *poetry install* command on the terminal
 
