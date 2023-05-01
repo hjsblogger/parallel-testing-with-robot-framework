@@ -18,6 +18,14 @@ It installs the libraries that are required for testing. Shown below is the exec
 <img width="819" alt="Screenshot 2022-09-16 at 2 12 29 PM" src="https://user-images.githubusercontent.com/1688653/190631083-b8b1f5c6-393d-4330-96bd-33fedc8ff023.png">
 <img width="806" alt="Screenshot 2022-09-16 at 2 12 46 PM" src="https://user-images.githubusercontent.com/1688653/190631076-23bcc619-3f72-487d-8a0a-7d5f36e539be.png">
 
+Install the project dependencies by running *poetry install* on the terminal
+
+<img width="1004" alt="Robot_Poetry_Install" src="https://user-images.githubusercontent.com/1688653/235434976-aab55a98-4e5e-4240-a65d-186aa8ea60ce.png">
+
+The global dependencies (i.e. Robot Framework 6.0 and Selenium 4.9.0) are installed by running *pip install -r requirements.txt* on the terminal
+
+<img width="1405" alt="Robot_Requirements_Install" src="https://user-images.githubusercontent.com/1688653/235434959-dda506bd-f5c0-4762-88d3-92724690ab27.png">
+
 ## Configure Environment Variables
 
 Before the tests are run, please set the environment variables LT_USERNAME & LT_ACCESS_KEY from the terminal. The account details are available on your [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
