@@ -11,9 +11,6 @@ python = "^3.11"
 selenium = "4.9.0"
 flake8 = "^6.0.0"
 autopep8 = "^2.0.2"
-robotframework = "^6.0.2"
-robotframework-seleniumlibrary = "^6.1.0"
-robotframework-pabot = "^2.15.0"
 
 [build-system]
 requires = ["poetry-core"]
