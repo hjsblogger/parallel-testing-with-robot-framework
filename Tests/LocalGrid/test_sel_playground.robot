@@ -28,7 +28,6 @@ Example 2: [Playground] Parallel Testing with Robot framework
 	[Timeout]   ${TIMEOUT}
 	Open local test browser	${site_url}		${BROWSER}
 	Maximize Browser Window
-	Sleep  3s
 	Page should contain element  xpath://a[.='Input Form Submit']
 
 	Click link  ${SubmitButton}
@@ -37,10 +36,9 @@ Example 2: [Playground] Parallel Testing with Robot framework
 
 	# Name
 	Input text  ${Name}   TestName
-	Sleep   5
 	# Email
 	Input text  ${email}       testing@gmail.com
-    # Password  
+        # Password  
 	Input text  ${passwd}       Password1
 	# Company 
 	Input text  ${company}      LambdaTest
@@ -48,7 +46,7 @@ Example 2: [Playground] Parallel Testing with Robot framework
 	Input text  ${website}      https://wwww.lambdatest.com
 	# Country
 	select from list by value    ${country}     US
-    # City
+        # City
 	Input text  ${city}       San Jose
 	# Address 1
 	Input text  ${address1}      Googleplex, 1600 Amphitheatre Pkwy
@@ -56,9 +54,15 @@ Example 2: [Playground] Parallel Testing with Robot framework
 	Input text  ${address2}       Mountain View, CA 94043
 	# State
 	Input text    ${state}          California
-    # City
+        # City
 	Input text  ${city}       San Jose
 	# Zip Code
-	Input text  ${address1}      94088
+	Input text  ${zipcode}      94088
 	Sleep  5s
-    Log    Completed - Example 2: [Playground] Parallel Testing with Robot framework
+
+	Click button  	  ${FinalSubmission}
+	Execute JavaScript    window.scrollTo(0, 0)
+	Page should contain  ${SuccessText}
+	Sleep  2s
+
+        Log    Completed - Example 2: [Playground] Parallel Testing with Robot framework
