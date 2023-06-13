@@ -50,7 +50,7 @@ Example 1: [ToDo] Parallel Testing with Robot framework
 	${response}    Get Text    ${NewAdditionText}
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
-    Log    Completed - Example 1: [ToDo] Parallel Testing with Robot framework
+        Log    Completed - Example 1: [ToDo] Parallel Testing with Robot framework
 
 Example 2: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 2
@@ -71,4 +71,4 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	${response}    Get Text    ${NewAdditionText}
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
-    Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+        Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
