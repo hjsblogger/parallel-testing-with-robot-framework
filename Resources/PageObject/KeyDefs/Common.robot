@@ -1,5 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
+Library  OperatingSystem
+Library  BuiltIn
 Library  ../Common/LambdaTestStatus.py
 
 *** Variables ***
