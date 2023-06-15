@@ -19,12 +19,12 @@ ${site_url}  		https://lambdatest.github.io/sample-todo-app/
     ...  platformName=Windows 11
     ...  browserVersion=latest
     ...  visual=true
-	...	 w3c=true
+    ...	 w3c=true
     ...  name=[ToDoApp - 1] Parallel Testing with Robot framework
-	...  build=[ToDoApp Demo - 1] Parallel Testing with Robot framework
+    ...  build=[ToDoApp Demo - 1] Parallel Testing with Robot framework
     ...  project=[ToDoApp Project - 1] Parallel Testing with Robot framework
 
-${BROWSER_1}	  	  ${lt_options_1['browserName']}
+${BROWSER_1}	      ${lt_options_1['browserName']}
 &{CAPABILITIES_1}     LT:Options=&{lt_options_1}
 
 *** Comments ***
@@ -37,12 +37,12 @@ ${BROWSER_1}	  	  ${lt_options_1['browserName']}
     ...  platformName=MacOS Ventura
     ...  browserVersion=16.0
     ...  visual=true
-	...	 w3c=true
+    ...	 w3c=true
     ...  name=[ToDoApp - 2] Parallel Testing with Robot framework
-	...  build=[ToDoApp Demo - 2] Parallel Testing with Robot framework
+    ...  build=[ToDoApp Demo - 2] Parallel Testing with Robot framework
     ...  project=[ToDoApp Project - 2] Parallel Testing with Robot framework
 
-${BROWSER_2}	  	  ${lt_options_2['browserName']}
+${BROWSER_2}	      ${lt_options_2['browserName']}
 &{CAPABILITIES_2}     LT:Options=&{lt_options_2}
 
 *** Test Cases ***
@@ -64,7 +64,7 @@ Example 1: [ToDo] Parallel Testing with Robot framework
 	${response}    Get Text    ${NewAdditionText}
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
-    Log    Completed - Example 1: [ToDo] Parallel Testing with Robot framework
+        Log    Completed - Example 1: [ToDo] Parallel Testing with Robot framework
 
 Example 2: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 2
@@ -85,4 +85,4 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	${response}    Get Text    ${NewAdditionText}
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
-    Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+        Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
