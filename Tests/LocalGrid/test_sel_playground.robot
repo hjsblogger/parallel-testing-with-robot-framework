@@ -1,6 +1,7 @@
 *** Settings ***
 
 Resource  	../../Resources/PageObject/KeyDefs/Common.robot
+Resource  	../../Resources/PageObject/KeyDefs/SeleniumDrivers.robot
 Variables 	../../Resources/PageObject/Locators/Locators.py
 
 Test Teardown  Common.Close local test browser
@@ -26,7 +27,9 @@ ${BROWSER}	  	  	${lt_options['browserName']}
 Example 2: [Playground] Parallel Testing with Robot framework
 	[tags]  Selenium Playground Automation
 	[Timeout]   ${TIMEOUT}
-	Open local test browser	${site_url}		${BROWSER}
+	${firefox_driver_path}=   Update Firefox Webdriver
+	# Open local test browser	${site_url}		${BROWSER}
+	Open local test browser 	${site_url}		${BROWSER}	${firefox_driver_path}
 	Maximize Browser Window
 	Page should contain element  xpath://a[.='Input Form Submit']
 
