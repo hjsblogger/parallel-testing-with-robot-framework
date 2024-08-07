@@ -4,11 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Himanshu Jagdish Sheth <himanshu.sheth@gmail.com>"]
 readme = "README.md"
-packages = [{include = "robot_parallel_tests"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-selenium = "4.9.0"
+selenium = "^4.9.0"
 flake8 = "^6.0.0"
 autopep8 = "^2.0.2"
 
