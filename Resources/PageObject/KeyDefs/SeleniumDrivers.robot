@@ -17,16 +17,16 @@ Update Chrome Webdriver
     [Documentation]    Update Chrome Web Driver
     ${driverpath}=     Evaluate    ${CHROME_DRIVER_MANAGER}().install()    modules=webdriver_manager.chrome
     Log                Chrome driver path: ${driverpath}
-    [Return]           ${driverpath}
+    RETURN             ${driverpath}
 
 Update Firefox Webdriver
     [Documentation]    Update Firefox Web Driver
     ${driverpath}=     Evaluate    ${GECKO_DRIVER_MANAGER}().install()    modules=webdriver_manager.firefox
     Log                Firefox driver path: ${driverpath}
-    [Return]           ${driverpath}
+    RETURN             ${driverpath}
 
 Update Edge Webdriver
     [Documentation]    Update Brave Web Driver
     ${driverpath}=     Evaluate    ${EDGE_DRIVER_MANAGER}().install()    modules=webdriver_manager.microsoft
     Log                Brave driver path: ${driverpath}
-    [Return]           ${driverpath}
+    RETURN             ${driverpath}
