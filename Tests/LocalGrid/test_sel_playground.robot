@@ -4,9 +4,11 @@ Resource  	../../Resources/PageObject/KeyDefs/Common.robot
 Resource  	../../Resources/PageObject/KeyDefs/SeleniumDrivers.robot
 Variables 	../../Resources/PageObject/Locators/Locators.py
 
-Test Teardown  Common.Close local test browser
+# Test Teardown  Common.Close local test browser
 
-Library    BuiltIn
+Library     SeleniumLibrary
+Library     OperatingSystem
+Library     BuiltIn
 
 *** Variables ***
 
@@ -17,10 +19,22 @@ ${site_url}  		https://www.lambdatest.com/selenium-playground/
 
 *** Variables ***
 
+${EXEC_PLATFORM}  %{EXEC_PLATFORM}
+
 &{lt_options}
     ...  browserName=Firefox
 
 ${BROWSER}	  	  	${lt_options['browserName']}
+
+*** Keywords ***
+Test Teardown
+	IF  '${EXEC_PLATFORM}' == 'local'
+        Log To Console	Closing the browser on local machine
+        Common.Close local test browser
+    ELSE IF 	'${EXEC_PLATFORM}' == 'cloud'
+        Log To Console	Closing the browser on cloud grid
+		Common.Close test browser
+    END
 
 *** Test Cases ***
 
@@ -69,3 +83,4 @@ Example 2: [Playground] Parallel Testing with Robot framework
 	Sleep  2s
 
         Log    Completed - Example 2: [Playground] Parallel Testing with Robot framework
+	[Teardown]  Test Teardown

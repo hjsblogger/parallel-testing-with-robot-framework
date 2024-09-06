@@ -4,9 +4,11 @@ Resource  	../../Resources/PageObject/KeyDefs/Common.robot
 Resource  	../../Resources/PageObject/KeyDefs/SeleniumDrivers.robot
 Variables 	../../Resources/PageObject/Locators/Locators.py
 
-Test Teardown  Common.Close local test browser
+# Test Teardown  Common.Close local test browser
 
-Library    BuiltIn
+Library     SeleniumLibrary
+Library     OperatingSystem
+Library     BuiltIn
 
 *** Variables ***
 
@@ -16,6 +18,8 @@ ${site_url}  		https://lambdatest.github.io/sample-todo-app/
 # Configuration for first test scenario
 
 *** Variables ***
+
+${EXEC_PLATFORM}  %{EXEC_PLATFORM}
 
 &{lt_options_1}
     ...  browserName=Chrome
@@ -36,6 +40,16 @@ ${BROWSER_2}	  	  ${lt_options_2['browserName']}
     ...  browserName=Firefox
 
 ${BROWSER_3}	  	  ${lt_options_3['browserName']}
+
+*** Keywords ***
+Test Teardown
+	IF  '${EXEC_PLATFORM}' == 'local'
+        Log To Console	Closing the browser on local machine
+        Common.Close local test browser
+    ELSE IF 	'${EXEC_PLATFORM}' == 'cloud'
+        Log To Console	Closing the browser on cloud grid
+		Common.Close test browser
+    END
 
 *** Test Cases ***
 
@@ -82,6 +96,8 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
         Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+	
+	[Teardown]  Test Teardown
 
 Example 3: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 2
@@ -105,3 +121,5 @@ Example 3: [ToDo] Parallel Testing with Robot framework
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
         Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+	
+	[Teardown]  Test Teardown

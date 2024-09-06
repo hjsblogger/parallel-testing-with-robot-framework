@@ -1,13 +1,20 @@
 *** Settings ***
 
 Resource  	../../Resources/PageObject/KeyDefs/Common.robot
+Resource  	../../Resources/PageObject/KeyDefs/SeleniumDrivers.robot
 Variables 	../../Resources/PageObject/Locators/Locators.py
 
-Test Teardown  Common.Close test browser
+Library     SeleniumLibrary
+Library     OperatingSystem
+Library     BuiltIn
+
+# Test Teardown  Common.Close test browser
 
 *** Variables ***
 
 ${site_url}  		https://lambdatest.github.io/sample-todo-app/
+
+${EXEC_PLATFORM}  %{EXEC_PLATFORM}
 
 *** Comments ***
 # Configuration for first test scenario
@@ -17,9 +24,11 @@ ${site_url}  		https://lambdatest.github.io/sample-todo-app/
 &{lt_options_1}
     ...  browserName=Chrome
     ...  platformName=Windows 11
-    ...  browserVersion=latest
+    ...  browserVersion=latest-1
     ...  visual=true
+    ...  console=true
     ...	 w3c=true
+    ...	 geoLocation=US
     ...  name=[ToDoApp - 1] Parallel Testing with Robot framework
     ...  build=[ToDoApp Demo - 1] Parallel Testing with Robot framework
     ...  project=[ToDoApp Project - 1] Parallel Testing with Robot framework
@@ -27,17 +36,30 @@ ${site_url}  		https://lambdatest.github.io/sample-todo-app/
 ${BROWSER_1}	      ${lt_options_1['browserName']}
 &{CAPABILITIES_1}     LT:Options=&{lt_options_1}
 
+*** Keywords ***
+
+Test Teardown
+	IF  '${EXEC_PLATFORM}' == 'local'
+        Log To Console	Closing the browser on local machine
+        Common.Close local test browser
+    ELSE IF 	'${EXEC_PLATFORM}' == 'cloud'
+        Log To Console	Closing the browser on cloud grid
+		Common.Close test browser
+    END
+
 *** Comments ***
 # Configuration for second test scenario
 
 *** Variables ***
 
 &{lt_options_2}
-    ...  browserName=Safari
+    ...  browserName=Chrome
     ...  platformName=MacOS Ventura
-    ...  browserVersion=16.0
+    ...  browserVersion=latest
     ...  visual=true
+    ...  console=true
     ...	 w3c=true
+    ...	 geoLocation=US
     ...  name=[ToDoApp - 2] Parallel Testing with Robot framework
     ...  build=[ToDoApp Demo - 2] Parallel Testing with Robot framework
     ...  project=[ToDoApp Project - 2] Parallel Testing with Robot framework
@@ -50,7 +72,12 @@ ${BROWSER_2}	      ${lt_options_2['browserName']}
 Example 1: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 1
 	[Timeout]   ${TIMEOUT}
-	Open test browser	${site_url}		${BROWSER_1}		${CAPABILITIES_1}
+	# Before the introduction of Selenium Manager
+	# Open test browser	${site_url}		${BROWSER_1}		${CAPABILITIES_1}
+
+	# After the introduction of Selenium Manager
+	Open test browser	${site_url}		${BROWSER_1}		${lt_options_1}
+
 	Maximize Browser Window
 	Sleep  3s
 	Page should contain element  ${FirstItem}
@@ -66,10 +93,16 @@ Example 1: [ToDo] Parallel Testing with Robot framework
 	Sleep  5s
         Log    Completed - Example 1: [ToDo] Parallel Testing with Robot framework
 
+	[Teardown]  Test Teardown
+
 Example 2: [ToDo] Parallel Testing with Robot framework
 	[tags]  ToDo App Automation - 2
 	[Timeout]   ${TIMEOUT}
-	Open test browser	${site_url}		${BROWSER_2}		${CAPABILITIES_2}
+	# Before the introduction of Selenium Manager
+	# Open test browser	${site_url}		${BROWSER_2}		${CAPABILITIES_2}
+
+	# After the introduction of Selenium Manager
+	Open test browser	${site_url}		${BROWSER_2}		${lt_options_2}
 	Maximize Browser Window
 	Sleep  3s
 	Page should contain element  ${FirstItem}
@@ -86,3 +119,5 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
         Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+
+	[Teardown]  Test Teardown
