@@ -7,6 +7,7 @@ Variables 	../../Resources/PageObject/Locators/Locators.py
 Library     SeleniumLibrary
 Library     OperatingSystem
 Library     BuiltIn
+Resource	../../Resources/PageObject/Common/ExceptionHandler.robot
 
 # Test Teardown  Common.Close test browser
 
@@ -15,6 +16,13 @@ Library     BuiltIn
 ${site_url}  		https://lambdatest.github.io/sample-todo-app/
 
 ${EXEC_PLATFORM}  %{EXEC_PLATFORM}
+
+*** Keywords ***
+Capture Exception A Report
+    [Arguments]    ${exception_message}
+    ${formatted_message}=    Set Variable    ${exception_message}
+    Log Many    ${formatted_message}    console=True
+    Execute JavaScript    lambda-exceptions(arguments[0]);    ARGUMENTS     ${formatted_message}
 
 *** Comments ***
 # Configuration for first test scenario
@@ -66,6 +74,21 @@ Test Teardown
 
 ${BROWSER_2}	      ${lt_options_2['browserName']}
 &{CAPABILITIES_2}     LT:Options=&{lt_options_2}
+
+&{lt_options_3}
+    ...  browserName=Chrome
+    ...  platformName=Windows 11
+    ...  browserVersion=latest-1
+    ...  visual=true
+    ...  console=true
+    ...	 w3c=true
+    ...	 geoLocation=US
+    ...  name=[ToDoApp Exception] Exception: Parallel Testing with Robot framework
+    ...  build=[ToDoApp Exception] Exception: Parallel Testing with Robot framework
+    ...  project=[ToDoApp Exception] PException: Parallel Testing with Robot framework
+
+${BROWSER_3}	      ${lt_options_3['browserName']}
+&{CAPABILITIES_3}     LT:Options=&{lt_options_3}
 
 *** Test Cases ***
 
@@ -119,5 +142,46 @@ Example 2: [ToDo] Parallel Testing with Robot framework
 	Should Be Equal As Strings    ${response}    ${NewItemText}
 	Sleep  5s
         Log    Completed - Example 2: [ToDo] Parallel Testing with Robot framework
+
+	[Teardown]  Test Teardown
+
+Example 3: [ToDo] Exception Handling in Robot Framework
+	[tags]  ToDo App Automation - 3
+	[Timeout]   ${TIMEOUT}
+	Open test browser	${site_url}		${BROWSER_3}		${lt_options_3}
+
+	Maximize Browser Window
+	Sleep  3s
+	Page should contain element  ${FirstItem}
+	Page should contain element  ${SecondItem}
+
+	Click button  ${FirstItem}	
+	Click button  ${SecondItem}
+
+	${result}=    Run Keyword And Ignore Error	Page should contain element  ${ToDoTextError}
+	# Only for debugging, can be removed in prod
+	Log		${result[0]}		console=true
+	Log		${result[1]}		console=true
+	
+	IF    '${result[0]}' == 'FAIL'
+		${test_status}=    Set Variable    FAIL
+		# This error is sufficient for the end user since it mentions the issue in gist
+		# Missing locator, element not clickable, etc.
+		${exception_array}=   Create List    ${result[1]}
+		capture and report exception		 ${exception_array}
+	
+		# Used global variable, defined in Locators.py
+		${status}=  ${test_status}
+		${status}=    Set Variable If    '${result[0]}' == FAIL    ${test_status}
+		Log    ${status}	console=true
+	ELSE
+		Input text  ${ToDoText}  ${NewItemText}
+		Click button  ${AddButton}
+		${response}    Get Text    ${NewAdditionText}
+		Should Be Equal As Strings    ${response}    ${NewItemText}
+	END
+	
+	Sleep  5s
+    Log    Completed - Example 3: [ToDo] Parallel Testing with Robot framework
 
 	[Teardown]  Test Teardown

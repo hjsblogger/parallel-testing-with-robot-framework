@@ -5,6 +5,7 @@ SecondItem = "name:li2"
 FifthItem = "name:li5"
 AddButton = "id:addbutton"
 ToDoText = "id:sampletodotext"
+ToDoTextError = "id:sampletodotextbook"
 
 NewItemText = "Yey Let's add it to list"
 NewAdditionText = "xpath=/html/body/div/div/div/ul/li[6]/span"
@@ -27,3 +28,5 @@ zipcode = "css=#inputZip"
 FinalSubmission = "xpath=//*[@id='seleniumform']/div[6]/button"
 
 SuccessText = "Thanks for contacting us, we will get back to you shortly."
+
+test_status = "PASS"
